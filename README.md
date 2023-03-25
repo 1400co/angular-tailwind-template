@@ -14,6 +14,7 @@ this project was created on 24/03/2023.
 - Tailwind forms 
 - Flowbite
 - Angular CDK
+- Angular Material
 - Angular-fontawesome/free-solid-svg-icons
 ## Installation
 
