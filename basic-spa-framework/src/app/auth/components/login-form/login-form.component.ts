@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { AuthService } from './../../../core/services/auth.service';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-form',
@@ -7,4 +10,22 @@ import { Component } from '@angular/core';
 })
 export class LoginFormComponent {
 
+  form:FormGroup;
+  @Output() login= new EventEmitter();
+
+  constructor( private formbuilder:FormBuilder ){
+    this.BuildForm();
+  }
+
+  private BuildForm(){
+    this.form = this.formbuilder.group({
+      userName:['', [Validators.required]],
+      password:['', [Validators.required]],
+    })
+  }
+
+  Login()
+  {
+    this.login.emit(this.form.value);
+  }
 }

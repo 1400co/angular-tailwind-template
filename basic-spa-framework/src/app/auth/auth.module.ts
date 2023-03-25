@@ -8,6 +8,7 @@ import { PasswordRecoveryComponent } from './pages/password-recovery/password-re
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { RegisterFormComponent } from './components/register-form/register-form.component';
 import { PasswordRecoveryFormComponent } from './components/password-recovery-form/password-recovery-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { PasswordRecoveryFormComponent } from './components/password-recovery-fo
   ],
   imports: [
     CommonModule,
-    AuthRoutingModule
+    AuthRoutingModule,
+    ReactiveFormsModule,
   ]
 })
 export class AuthModule { }
