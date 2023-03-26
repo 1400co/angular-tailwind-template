@@ -1,12 +1,8 @@
-<div class="d-flex align-items-center justify-content-center vh-100">
-  <div class="text-center">
-      <h1 class="display-1 fw-bold">
-      404
-      </h1>
-      <p class="fs-3"> <span class="text-danger"> <strong>Hey</strong>  </span> Página no encontrada.</p>
-      <p class="lead">
-          la pagina que estás buscando no existe.
-        </p>
-      <a (click)="GoBack()" class="btn btn-primary">Go Home</a>
+
+<div class="w-full flex items-center justify-center h-screen">
+  <div class="w-full  max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8">
+    <h2 class="text-2xl font-bold text-gray-900 mb-4">Page Not Found</h2>
+    <p class="text-gray-600 mb-8">We're sorry, but the page you're looking for cannot be found.</p>
+    <button (click)="GoBack()" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50" onclick="window.history.back();">Go Back</button>
   </div>
 </div>
