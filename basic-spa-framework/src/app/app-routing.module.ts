@@ -8,6 +8,10 @@ const routes: Routes = [
     loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
   },
   {
+    path: 'app',
+    loadChildren: () => import('./layout/layout.module').then((m) => m.LayoutModule),
+  },
+  {
     path: '**',
     component: NotFoundComponent,
     title: 'error'

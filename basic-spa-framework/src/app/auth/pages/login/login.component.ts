@@ -1,3 +1,4 @@
+import { TokenService } from 'src/app/core/services/token.service';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/services/auth.service';
@@ -10,6 +11,7 @@ import { AuthService } from 'src/app/core/services/auth.service';
 export class LoginComponent {
 
   constructor( private userService: AuthService,
+    private tokenService : TokenService,
     private router: Router){
 
   }
@@ -17,11 +19,10 @@ export class LoginComponent {
 
   Login(data)
   {
-    const { email, password } = data.getRawValue();
-    this.userService.Login(email, password).subscribe({
+    this.userService.Login(data.userName, data.password).subscribe({
       next:(result) => {
-        console.log(result);
-        this.router.navigate(['/dashboard/']);
+        this.tokenService.saveToken(result);
+        this.router.navigate(['/app/']);
       },
       error: () => {
         console.log("Error")
