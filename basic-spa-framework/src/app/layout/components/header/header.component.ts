@@ -11,10 +11,23 @@ import { TokenService } from 'src/app/core/services/token.service';
 export class HeaderComponent implements OnInit{
 
   userLogged:AuthUser;
+  openUserMenu:Boolean = false;
 
   constructor(private tokenService: TokenService,
     private router: Router){
 
+  }
+
+  showDropdown = false;
+
+  toggleDropdown() {
+    this.showDropdown = !this.showDropdown;
+  }
+  
+  toggleUserMenu()
+  {
+    console.log(this.openUserMenu)
+    this.openUserMenu= !this.openUserMenu;
   }
 
   ngOnInit(): void {
