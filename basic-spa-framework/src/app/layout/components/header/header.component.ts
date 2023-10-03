@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthUser } from 'src/app/core/models/auth-user.model';
 import { TokenService } from 'src/app/core/services/token.service';
@@ -14,7 +14,8 @@ export class HeaderComponent implements OnInit{
   openUserMenu:Boolean = false;
 
   constructor(private tokenService: TokenService,
-    private router: Router){
+    private router: Router,
+    private elementRef: ElementRef){
 
   }
 
@@ -23,7 +24,7 @@ export class HeaderComponent implements OnInit{
   toggleDropdown() {
     this.showDropdown = !this.showDropdown;
   }
-  
+
   toggleUserMenu()
   {
     console.log(this.openUserMenu)
@@ -32,7 +33,7 @@ export class HeaderComponent implements OnInit{
 
   ngOnInit(): void {
     this.userLogged = this.tokenService.getToken();
-    console.log("header",this.userLogged)
+    document.addEventListener('click', this.handleClickOutside.bind(this));
   }
 
   SignOut()
@@ -40,4 +41,15 @@ export class HeaderComponent implements OnInit{
     this.tokenService.removeToken();
     this.router.navigate(['/login']);
   }
+
+  handleClickOutside(event: Event) {
+    if (
+      this.openUserMenu &&
+      !this.elementRef.nativeElement.contains(event.target)
+    ) {
+      // Cerrar el menú si está abierto y se hizo clic fuera de él
+      this.openUserMenu = false;
+    }
+  }
+
 }
