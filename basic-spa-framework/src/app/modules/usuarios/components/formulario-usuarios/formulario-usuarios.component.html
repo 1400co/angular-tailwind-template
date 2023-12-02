@@ -1,0 +1,163 @@
+<div class="flex justify-between mb-4">
+  <h1 class="text-lg font-semibold">Usuarios</h1>
+</div>
+<br>
+<form [formGroup]="form">
+  <div class="card mb-2">
+    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+      <div class="bg-gray-500 text-white px-4 py-2">Información del usuario
+      </div>
+      <div class="p-6">
+        <div class="grid gap-6 mb-6 md:grid-cols-4">
+          <div>
+            <label for="first_name" class="block mb-2 text-xs font-medium text-gray-900 dark:text-gray-900">Nombre
+              completo:</label>
+            <input type="text" formControlName="fullName" id="fullName"
+              class="bg-gray-50 border  border-primary-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="John" [ngClass]="{'required': form.get('fullName').invalid && form.get('fullName').touched}">
+          </div>
+          <div>
+            <label for="email" class="block mb-2 text-xs font-medium text-gray-900 dark:text-gray-900">Correo:</label>
+            <input type="email" formControlName="email" id="email"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="Usuario89" [ngClass]="{'required': form.get('email').invalid && form.get('email').touched}">
+          </div>
+          <div>
+            <label for="dni" class="block mb-2 text-xs font-medium text-gray-900 dark:text-gray-900">Cedula:</label>
+            <input type="text" formControlName="dni" id="dni"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="" [ngClass]="{'required': form.get('dni').invalid && form.get('dni').touched}">
+          </div>
+          <div>
+            <label for="phone" class="block mb-2 text-xs font-medium text-gray-900 dark:text-gray-900">Telefono:</label>
+            <input type="tel" formControlName="phone" id="phone"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="123-45-678" [ngClass]="{'required': form.get('phone').invalid && form.get('phone').touched}">
+          </div>
+          <div>
+            <label for="isActive" class="block mb-2 text-xs font-medium text-gray-900 dark:text-gray-900">Usuario Activo:</label>
+            <input type="checkbox" formControlName="isActive" id="isActive"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="Usuario Activo" [ngClass]="{
+                required:
+                  form.get('isActive').invalid &&
+                  form.get('isActive').touched
+              }" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="this.isNew" class="card mb-2">
+    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+      <div class="bg-gray-500 text-white px-4 py-2">Información de Acceso
+      </div>
+      <div class="p-6">
+        <div class="grid gap-6 mb-6 md:grid-cols-4">
+          <div>
+            <label for="phone" class="block mb-2 text-xs font-medium text-gray-900 dark:text-gray-900">Usuario:</label>
+            <input type="tel" formControlName="userName" id="userName"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="">
+          </div>
+          <div>
+            <label for="phone"
+              class="block mb-2 text-xs font-medium text-gray-900 dark:text-gray-900">Contraseña:</label>
+            <input type="tel" formControlName="password" id="phone"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div *ngIf="!this.isNew" class="card mb-2">
+    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+      <div class="bg-gray-500 text-white px-4 py-2">Roles
+      </div>
+      <div class="p-6">
+        <form [formGroup]="formRoles">
+          <div class="p-6">
+            <div class="grid gap-6 mb-6 md:grid-cols-4">
+              <div class="mb-4 flex flex-col ">
+                <label class="block text-gray-700 font-bold mb-1 text-xs" for="claseId"> Rol </label>
+                <select formControlName="rolId" id="claseId"
+                  class="shadow  text-xs appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                  <option value="" selected>Seleccione</option>
+                  <option *ngFor="let rol of roles" [value]="rol.id">{{rol.rolName}}</option>
+                </select>
+              </div>
+              <div class="mb-4 flex items-end">
+                  <!--<app-btn  typeBtn="submit" color="primary" [loading]="statusDetail === 'loading'"
+                    (click)="AgregarRol()">Agregar Rol</app-btn>-->
+                    <button (click)="AgregarRol()"  type="submit" class="btnazul w-48 w-full text-white focus:ring-4 focus:outline-none font-medium rounded-full text-sm px-2.5 py-2.5 text-center" > Agregar Rol </button>
+    
+              </div>
+            </div>
+          </div>
+        </form>
+        <div>
+          <table class="min-w-full divide-y divide-gray-200">
+              <thead class="bg-gray-50">
+                  <tr>
+                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Rol</th>
+                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Acción</th>
+                  </tr>
+              </thead>
+              <tbody class="bg-white divide-y divide-gray-200">
+                  <ng-container *ngFor="let userInRole of userInRoles">
+                      <tr>
+                          <td class="px-6 py-4 whitespace-nowrap">
+                              <div class="text-sm font-bold text-blue-400">{{ userInRole.rol?.rolName }}</div>
+                          </td>
+                          <td class="px-6 py-4 whitespace-nowrap">
+                            <button  (click)="deleteRole(userInRole.id,userInRole)"  type="submit" class="btnyellow w-48 w-full text-white focus:ring-4 focus:outline-none font-medium rounded-full text-sm px-2.5 py-2.5 text-center" >Eliminar</button>
+    
+                             <!-- <button (click)="deleteRole(userInRole.id,userInRole)" class="px-4 py-2 bg-red-500 text-white rounded-md">Eliminar</button>-->
+                          </td>
+                      </tr>
+                  </ng-container>
+              </tbody>
+          </table>
+      </div>
+
+
+      </div>
+    </div>
+  </div>
+  <br>
+  <div *ngIf="statusDetail==='error'" class="alert alert-danger" role="alert">
+    Ha ocurrido un error al crear el usuario.
+  </div>
+  <div *ngIf="statusDetail==='success'" class="alert alert-success" role="alert">
+    La operacion se ha realizado con exito.
+  </div>
+  <br>
+  <div class="flex justify-end space-x-4">
+    <app-cambiar-contrasena [usuario]="this.user"></app-cambiar-contrasena>
+    <!--<app-btn *ngIf="!isNew && mostraDelete" typeBtn="submit" color="yellow" [loading]="statusDetail === 'loading'"
+      (click)="mostrarConfirmacion()">Borrar</app-btn>-->
+      <button *ngIf="!isNew && mostraDelete" (click)="mostrarConfirmacion()"  type="submit" class="btnyellow w-48 w-full text-white focus:ring-4 focus:outline-none font-medium rounded-full  px-2.5 py-2.5 text-center" > Borrar </button>
+      <button *ngIf="isNew" (click)="Guardar()"  type="submit" class="btnazul w-48 w-full text-white focus:ring-4 focus:outline-none font-medium rounded-full  px-2.5 py-2.5 text-center" > Guardar </button>
+    <!--<app-btn *ngIf="isNew" typeBtn="submit" color="primary" [loading]="statusDetail === 'loading'"
+      (click)="Guardar()">Guardar</app-btn>-->
+      <button  *ngIf="!isNew && mostraUpdate" (click)="Actualizar()"  type="submit" class="btnazul w-48 w-full text-white focus:ring-4 focus:outline-none font-medium rounded-full px-2.5 py-2.5 text-center" > Actualizar </button>
+    <!--<app-btn *ngIf="!isNew && mostraUpdate" typeBtn="submit" color="primary" [loading]="statusDetail === 'loading'"
+      (click)="Actualizar()">Actualizar</app-btn>-->
+  </div>
+
+</form>
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Eliminar</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="c('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <p>¿Estas seguro que deseas eliminar?</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">No</button>
+    <button type="button" class="btn btn-outline-dark" (click)="c(Borrar())">Si</button>
+  </div>
+</ng-template>

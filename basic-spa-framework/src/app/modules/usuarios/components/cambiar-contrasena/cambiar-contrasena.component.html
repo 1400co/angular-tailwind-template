@@ -1,0 +1,60 @@
+<!--<app-btn  typeBtn="submit"
+color="green"
+(click)="toggleModal()"> Cambiar Contraseña </app-btn>-->
+<button  type="button" (click)="toggleModal()" class="btncolor w-48 w-full text-white hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-full px-2.5 py-2.5 text-center" > Cambiar Contraseña </button>
+    
+<app-modal [titulo]="'Cambiar contraseña'" [botonModal]="'Cambiar'" [ShowModal]="showModal" (cerrarModalEvent)="cerrarModal($event)">
+
+  <section class="my-4 text-slate-500 text-lg leading-relaxed">
+    <form [formGroup]="form">
+      <div class="card mb-2">
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <div class="bg-gray-500 text-white px-4 py-2">Información de Acceso
+          </div>
+          <div class="p-6">
+            <div class="grid gap-6 mb-6 md:grid-cols-4">
+                   <div>
+                <label for="phone"
+                  class="block mb-2 text-xs font-medium text-gray-900 dark:text-gray-900">Usuario:</label>
+                <input type="tel" formControlName="userName" id="userName"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="">
+              </div>
+              <div>
+                <label for="phone"
+                  class="block mb-2 text-xs font-medium text-gray-900 dark:text-gray-900">Contraseña:</label>
+                <input type="tel" formControlName="password" id="phone"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="">
+        <br>
+        <section>
+          <div *ngIf="statusDetail==='error'" class="alert alert-danger" role="alert">
+            Ha ocurrido un error al actualizar los datos.
+          </div>
+          <div *ngIf="statusDetail==='success'" class="alert alert-success" role="alert">
+            La operacion se ha realizado con exito.
+          </div>
+          <div *ngIf="isFormInValid" class="alert alert-danger" role="alert">
+            <ul>
+              <li *ngIf="!isPasswordFieldValid">El campo <strong>Contrasena</strong> es obligatorio</li>
+              <li *ngIf="!isUserNameFieldValid">El campo <strong>Usuario</strong> es obligatorio</li>
+            </ul>
+          </div>
+        </section>
+        <br>
+        <div class="flex justify-end space-x-4">
+          <!--<app-btn  typeBtn="submit"
+          color="primary"
+          (click)="CambiarContrasena()">Cambiar Contraseña</app-btn>-->
+          <button  type="button" (click)="CambiarContrasena()" class="btnazul w-48 w-full text-white hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-full text-sm px-2.5 py-2.5 text-center" > Cambiar Contraseña </button>
+        </div>
+      </div>
+    </form>
+  </section>
+</app-modal>

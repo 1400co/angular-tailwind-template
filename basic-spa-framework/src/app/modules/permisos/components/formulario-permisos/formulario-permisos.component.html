@@ -1,0 +1,114 @@
+<div class="flex justify-between mb-4">
+  <h1 class="text-lg font-semibold">Permisos</h1>
+</div>
+<br>
+<form [formGroup]="form">
+  <div class="card mb-2">
+    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+      <div class="bg-gray-500 text-white px-4 py-2">Información del modulo
+      </div>
+      <div class="p-6">
+        <div class="grid gap-6 mb-6 md:grid-cols-4">
+          <!-- Input for idRol -->
+          <div>
+            <label for="idRol" class="block mb-2 text-xs font-medium text-gray-900 dark:text-gray-900">ID Rol</label>
+            <select formControlName="idRol" id="idRol" [ngClass]="{'required': !field('idRol').isValid()}"
+              class="shadow  text-xs appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+              <option value="" selected>Seleccione</option>
+              <option *ngFor="let periodo of roles" [value]="periodo.id">{{periodo.rolName}}</option>
+            </select>
+          </div>
+
+          <!-- Input for idModule -->
+          <div>
+            <label for="idModule" class="block mb-2 text-xs font-medium text-gray-900 dark:text-gray-900">Id
+              Módulo</label>
+            <select formControlName="idModule" id="idModule" [ngClass]="{'required': !field('idModule').isValid()}"
+              class="shadow  text-xs appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+              <option value="" selected>Seleccione</option>
+              <option *ngFor="let periodo of modulos" [value]="periodo.id">{{periodo.moduleName}}</option>
+            </select>
+          </div>
+          <!-- Created Permission Checkbox -->
+          <div>
+            <label for="created" class="block mb-2 text-xs font-medium text-gray-900 dark:text-gray-900">Permiso:
+              Agregar</label>
+            <input type="checkbox" formControlName="created" id="created"
+              class="text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 dark:bg-white dark:border-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              [ngClass]="{'required': !field('created').get().valid}">
+          </div>
+
+          <!-- Edited Permission Checkbox -->
+          <div>
+            <label for="edited" class="block mb-2 text-xs font-medium text-gray-900 dark:text-gray-900">Permiso:
+              Editar</label>
+            <input type="checkbox" formControlName="edited" id="edited"
+              class="text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 dark:bg-white dark:border-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              [ngClass]="{'required': !field('edited').get().valid}">
+          </div>
+
+          <!-- Listed Permission Checkbox -->
+          <div>
+            <label for="listed" class="block mb-2 text-xs font-medium text-gray-900 dark:text-gray-900">Permiso:
+              Listar</label>
+            <input type="checkbox" formControlName="listed" id="listed"
+              class="text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 dark:bg-white dark:border-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              [ngClass]="{'required': !field('listed').get().valid}">
+          </div>
+
+          <!-- Deleted Permission Checkbox -->
+          <div>
+            <label for="deleted" class="block mb-2 text-xs font-medium text-gray-900 dark:text-gray-900">Permiso:
+              Eliminar</label>
+            <input type="checkbox" formControlName="deleted" id="deleted"
+              class="text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 dark:bg-white dark:border-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              [ngClass]="{'required': !field('deleted').get().valid}">
+          </div>
+
+          <!-- Printed Permission Checkbox -->
+          <div>
+            <label for="printed" class="block mb-2 text-xs font-medium text-gray-900 dark:text-gray-900">Permiso:
+              Imprimir</label>
+            <input type="checkbox" formControlName="printed" id="printed"
+              class="text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 dark:bg-white dark:border-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              [ngClass]="{'required': !field('printed').get().valid}">
+          </div>
+        </div>
+        <div class="flex justify-end space-x-4">
+          <!--<app-btn *ngIf="!isNew && mostraDelete" typeBtn="submit" color="yellow" [loading]="statusDetail === 'loading'"
+            (click)="mostrarConfirmacion()">Borrar</app-btn>-->
+            <button  type="submit" *ngIf="!isNew && mostraDelete" (click)="mostrarConfirmacion()" class="btncolor w-48 w-full text-white focus:ring-4 focus:outline-none font-medium rounded-full  px-2.5 py-2.5 text-center" >Borrar</button>
+           
+          <!--<app-btn *ngIf="isNew" typeBtn="submit" color="primary" [loading]="statusDetail === 'loading'"
+            (click)="Guardar()">Guardar</app-btn>-->
+            <button  type="submit" *ngIf="isNew" (click)="Guardar()" class="btnazul w-48 w-full text-white focus:ring-4 focus:outline-none font-medium rounded-full  px-2.5 py-2.5 text-center" >Guardar</button>
+            <button  type="submit" *ngIf="!isNew && mostraUpdate" (click)="Actualizar()" class="btnazul w-48 w-full text-white focus:ring-4 focus:outline-none font-medium rounded-full  px-2.5 py-2.5 text-center" >Actualizar</button>
+         
+            <!--<app-btn *ngIf="!isNew && mostraUpdate" typeBtn="submit" color="primary" [loading]="statusDetail === 'loading'"
+            (click)="Actualizar()">Actualizar</app-btn>-->
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <br>
+  <div *ngIf="statusDetail==='error'" class="alert alert-danger" role="alert">
+    Ha ocurrido un error al crear el permiso.
+  </div>
+  <div *ngIf="statusDetail==='success'" class="alert alert-success" role="alert">
+    La operacion se ha realizado con exito.
+  </div>
+</form>
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Eliminar</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="c('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <p>¿Estas seguro que deseas eliminar?</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">No</button>
+    <button type="button" class="btn btn-outline-dark" (click)="c(Borrar())">Si</button>
+  </div>
+</ng-template>

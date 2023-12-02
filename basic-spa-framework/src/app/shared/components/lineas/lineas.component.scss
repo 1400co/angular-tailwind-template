@@ -1,0 +1,31 @@
+/* Estilos para los elementos de la lista */
+ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex; /* Hace que la lista sea un contenedor flexible */
+}
+
+li {
+    flex: 1; /* Hace que los elementos de la lista ocupen el mismo espacio */
+    padding: 1px;
+   
+    
+ 
+    height: 8px;
+}
+
+/* Colores para cada elemento de la lista */
+li:nth-child(1) {
+    background-color: #00d000;
+}
+
+li:nth-child(2) {
+    background-color: #ffc900;
+}
+
+li:nth-child(3) {
+    background-color: #5f73ff;
+}
+.wn{
+    width: 150px;
+}

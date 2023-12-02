@@ -11,17 +11,14 @@ import { AuthService } from 'src/app/core/services/auth.service';
 export class LoginComponent {
 
   constructor( private userService: AuthService,
-    private tokenService : TokenService,
     private router: Router){
 
   }
 
-
   Login(data)
   {
-    this.userService.Login(data.userName, data.password).subscribe({
+    this.userService.Login(data.user, data.password).subscribe({
       next:(result) => {
-        this.tokenService.saveToken(result);
         this.router.navigate(['/app/']);
       },
       error: () => {

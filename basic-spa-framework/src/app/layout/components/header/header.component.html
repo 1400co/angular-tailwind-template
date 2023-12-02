@@ -1,134 +1,318 @@
-
 <nav class="fixed top-0 z-50 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
   <div class="px-3 py-3 lg:px-5 lg:pl-3">
     <div class="flex items-center justify-between">
       <div class="flex items-center justify-start">
-        <button data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar" aria-controls="logo-sidebar" type="button" class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
-            <span class="sr-only">Open sidebar</span>
-            <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-               <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
-            </svg>
-         </button>
+        <button data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar" aria-controls="logo-sidebar"
+          type="button"
+          class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
+          <span class="sr-only">Open sidebar</span>
+          <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg">
+            <path clip-rule="evenodd" fill-rule="evenodd"
+              d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z">
+            </path>
+          </svg>
+
+        </button>
         <a class="flex ml-2 md:mr-24">
-          <img src="https://flowbite.com/docs/images/logo.svg" class="h-8 mr-3" alt="FlowBite Logo" />
-          <span class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">Flowbite</span>
+          <img src="../../../../assets/img/arbol.png" class="h-8 mr-3" alt="FlowBite Logo" />
+          <span class="self-center text-sm sm:text-xl lg:text-xs font-semibold whitespace-nowrap dark:text-white">
+            Gestión del árbol <br>urbano y periurbano
+        </span>
+        
+        
+        
         </a>
       </div>
       <div class="flex items-center">
-          <div class="relative">
-            <div>
-              <button (click)="toggleUserMenu()" type="button" class="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" aria-expanded="false" data-dropdown-toggle="dropdown-user">
-                <span class="sr-only">Open user menu</span>
-                <img class="w-8 h-8 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="user photo">
+        <div class="relative">
+          <div>
+            <div class="btn-back">
+              <button onclick="window.history.back()">
+                <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="30.000000pt" height="10.000000pt"
+                  viewBox="0 0 1280.000000 640.000000" preserveAspectRatio="xMidYMid meet">
+                  <g transform="translate(0.000000,640.000000) scale(0.100000,-0.100000)" fill="#FFFFFF" stroke="none">
+                    <path d="M3600 6163 c-51 -36 -3566 -2867 -3577 -2882 -24 -30 -27 -63 -8 -95
+             9 -17 92 -92 183 -167 92 -74 889 -727 1772 -1450 883 -723 1616 -1322 1630
+             -1332 37 -26 92 -22 121 9 l24 26 3 694 2 694 4481 0 c4886 0 4536 -4 4559 55
+             13 35 14 2934 0 2969 -5 14 -23 32 -39 41 -27 13 -486 15 -4515 15 l-4486 0
+             -2 694 -3 694 -24 26 c-29 31 -84 35 -121 9z" />
+                  </g>
+                </svg>
               </button>
             </div>
-            <div *ngIf="openUserMenu" class="absolute right-0 mt-2 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600" id="dropdown-user">
-              <div class="px-4 py-3" role="none">
-                <p class="text-sm text-gray-900 dark:text-white" role="none">
-                  {{userLogged.name}}
-                </p>
-                <p class="text-sm font-medium text-gray-900 truncate dark:text-gray-300" role="none">
-                  {{userLogged.email}}
-                </p>
-              </div>
-              <ul class="py-1" role="none">
-                <li>
-                  <a  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Dashboard</a>
-                </li>
-                <li>
-                  <a  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Settings</a>
-                </li>
-                <li>
-                  <a  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Earnings</a>
-                </li>
-                <li>
-                  <a (click)="SignOut()" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white cursor-pointer" role="menuitem">Sign out</a>
-                </li>
-              </ul>
+            <button (click)="toggleUserMenu()" type="button"
+              class="btn btn-back2 flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+              aria-expanded="false" data-dropdown-toggle="dropdown-user">
+              <span class="sr-only">Open user menu</span>
+              <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" fill="white">
+                <path
+                  d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z" />
+              </svg>
+            </button>
+          </div>
+
+          <div *ngIf="openUserMenu"
+            class="absolute right-0 mt-2 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600"
+            id="dropdown-user">
+            <div class="px-4 py-3" role="none">
+              <p class="text-sm text-gray-900 dark:text-white" role="none">
+                {{userLogged}}
+              </p>
             </div>
+            <ul class="py-1" role="none">
+              <li>
+                <a class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                  role="menuitem">Dashboard</a>
+              </li>
+              <li>
+                <a class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                  role="menuitem">Settings</a>
+              </li>
+              <li>
+                <a class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                  role="menuitem">Earnings</a>
+              </li>
+              <li>
+                <a (click)="SignOut()"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white cursor-pointer"
+                  role="menuitem">Sign out</a>
+              </li>
+            </ul>
           </div>
         </div>
+      </div>
 
     </div>
   </div>
 </nav>
 
-<button data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar" aria-controls="logo-sidebar" type="button" class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
+<button data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar" aria-controls="logo-sidebar" type="button"
+  class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
   <span class="sr-only">Open sidebar</span>
   <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-     <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
+    <path clip-rule="evenodd" fill-rule="evenodd"
+      d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z">
+    </path>
   </svg>
 </button>
 <!-- Sidebar -->
-<aside id="logo-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700" aria-label="Sidebar">
+<aside id="logo-sidebar"
+  class="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700"
+  aria-label="Sidebar">
   <div class="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
-     <ul class="space-y-2 font-medium">
-        <li>
-           <a [routerLink]="['secured/']" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
-              <svg aria-hidden="true" class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path><path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path></svg>
-              <span class="ml-3">Dashboard</span>
-           </a>
-        </li>
-        <li>
-          <app-dropdown-menu label="E-commerce" [dropdownId]="'001'">
-            <li>
-              <a href="#" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-                >Products</a
-              >
-            </li>
-            <li>
-              <a href="#" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-                >Billing</a
-              >
-            </li>
-            <li>
-              <a href="#" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-                >Invoice</a
-              >
-            </li>
-          </app-dropdown-menu>
-       </li>
-        <li>
-           <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
-              <svg aria-hidden="true" class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
-              <span class="flex-1 ml-3 whitespace-nowrap">Kanban</span>
-              <span class="inline-flex items-center justify-center px-2 ml-3 text-sm font-medium text-gray-800 bg-gray-200 rounded-full dark:bg-gray-700 dark:text-gray-300">Pro</span>
-           </a>
-        </li>
-        <li>
-           <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
-              <svg aria-hidden="true" class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M8.707 7.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l2-2a1 1 0 00-1.414-1.414L11 7.586V3a1 1 0 10-2 0v4.586l-.293-.293z"></path><path d="M3 5a2 2 0 012-2h1a1 1 0 010 2H5v7h2l1 2h4l1-2h2V5h-1a1 1 0 110-2h1a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5z"></path></svg>
-              <span class="flex-1 ml-3 whitespace-nowrap">Inbox</span>
-              <span class="inline-flex items-center justify-center w-3 h-3 p-3 ml-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">3</span>
-           </a>
-        </li>
-        <li>
-           <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
-              <svg aria-hidden="true" class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg>
-              <span class="flex-1 ml-3 whitespace-nowrap">Users</span>
-           </a>
-        </li>
-        <li>
-           <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
-              <svg aria-hidden="true" class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z" clip-rule="evenodd"></path></svg>
-              <span class="flex-1 ml-3 whitespace-nowrap">Products</span>
-           </a>
-        </li>
-        <li>
-           <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
-              <svg aria-hidden="true" class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z" clip-rule="evenodd"></path></svg>
-              <span class="flex-1 ml-3 whitespace-nowrap">Sign In</span>
-           </a>
-        </li>
-        <li>
-           <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
-              <svg aria-hidden="true" class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5 4a3 3 0 00-3 3v6a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H5zm-1 9v-1h5v2H5a1 1 0 01-1-1zm7 1h4a1 1 0 001-1v-1h-5v2zm0-4h5V8h-5v2zM9 8H4v2h5V8z" clip-rule="evenodd"></path></svg>
-              <span class="flex-1 ml-3 whitespace-nowrap">Sign Up</span>
-           </a>
-        </li>
-     </ul>
+    <ul class="space-y-2 font-medium">
+      <li>
+        <a href="#/app/home"
+          class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+          <svg aria-hidden="true"
+            class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+            fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path>
+            <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>
+          </svg>
+          <span class="ml-3">Dashboard</span>
+        </a>
+      </li>
+      <li>
+        <app-dropdown-menu label="Administracion" [dropdownId]="'001'">
+      <li>
+        <a *ngIf="menuusuario" href="#/app/usuarios"
+          class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group  dark:text-white dark:hover:bg-gray-700">Usuarios</a>
+      </li>
+      <li>
+        <a *ngIf="menuroles" href="#/app/roles"
+          class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Roles</a>
+      </li>
+      <li>
+        <a *ngIf="menupermisos" href="#/app/permisos"
+          class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Permisos</a>
+      </li>
+      <li>
+        <a *ngIf="menumodules" href="#/app/modules"
+          class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Modulos</a>
+      </li>
+
+      </app-dropdown-menu>
+      </li>
+      <li>
+        <app-dropdown-menu label="Configuraciones" [dropdownId]="'004'">
+      <li>
+        <a *ngIf="menumaestra" href="#/app/maestra"
+          class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Maestra</a>
+      </li>
+      <li>
+        <a href="#/app/detalle/by/0475362b-ab82-4d1e-8a32-cbfc0f5bd942"
+          class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Tipo
+          de individuo (forestal, arbusto, palma, frutal, bambú y guadua)</a>
+      </li>
+      <li>
+        <a href="#/app/detalle/by/08bc8ed9-870a-4973-9908-4360702fff55"
+          class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Características
+          edáficas o del suelo</a>
+      </li>
+      <li>
+        <a href="#/app/detalle/by/1bbd9baf-b6c1-46a8-b175-c9ad299646ee"
+          class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Infraestructura
+          afectada</a>
+      </li>
+      <li>
+        <a href="#/app/detalle/by/3600546b-7820-4384-b05f-c0d77d17932c"
+          class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Tipo
+          de emplazamiento</a>
+      </li>
+      <li>
+        <a href="#/app/detalle/by/3bb50b22-9b46-4662-876d-6bbcdacce005"
+          class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Distanciamiento
+          de siembra</a>
+      </li>
+      <li>
+        <a href="#/app/detalle/by/5ed945fe-351d-4315-8c46-aeed0b730f4a"
+          class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Especies
+          potenciales para siembra (Al menos tres opciones)</a>
+      </li>
+      <li>
+        <a href="#/app/detalle/by/77dcb515-3652-4387-8952-9070642aa296"
+          class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Estado
+          de madurez</a>
+      </li>
+      <li>
+        <a href="#/app/detalle/by/7e60de52-ff90-4ab0-a379-0633bda93618"
+          class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Pendiente
+          del terreno</a>
+      </li>
+      <li>
+        <a href="#/app/detalle/by/961d1612-d404-4fc0-b951-93552ee10b88"
+          class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Poda
+          sanitaria</a>
+      </li>
+      <li>
+        <a href="#/app/detalle/by/a6207503-a3bd-460d-8b2c-d9e7360f68cc"
+          class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Estado
+          fitosanitario</a>
+      </li>
+      <li>
+        <a href="#/app/detalle/by/abe3625e-670d-4c49-851c-2b5c6555d6de"
+          class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Recomendaciones
+          para manejo silvicultural</a>
+      </li>
+      <li>
+        <a href="#/app/detalle/by/b0bb7f80-7997-4130-9ad4-301101b4f6ea"
+          class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Alturas
+          potenciales de árboles</a>
+      </li>
+      <li>
+        <a href="#/app/detalle/by/b4f84511-f07a-412e-9fa0-f68180daf435"
+          class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Estructuras
+          cercanas (Tipo de emplazamiento)</a>
+      </li>
+      <li>
+        <a href="#/app/detalle/by/e2b9fb66-ecc8-45e6-96dc-2bcde2267d76"
+          class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Limpieza</a>
+      </li>
+      <li>
+        <a href="#/app/detalle/by/e34711a0-b522-429f-af9b-307c9eead211"
+          class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Forma
+          de copa</a>
+      </li>
+
+
+
+
+      <li>
+        <a href="#/app/basictable/Orden"
+          class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Orden</a>
+      </li>
+      <li>
+        <a href="#/app/basictable/Familia"
+          class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Familia</a>
+      </li>
+      <li>
+        <a href="#/app/basictable/Genero"
+          class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Genero</a>
+      </li>
+      <li>
+        <a href="#/app/basictable/Especie"
+          class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Especie</a>
+      </li>
+      <li>
+        <a href="#/app/basictable/Comuna"
+          class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Comuna</a>
+      </li>
+      <li>
+        <a href="#/app/basictable/Barrio"
+          class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Barrio</a>
+      </li>
+      </app-dropdown-menu>
+      </li>
+      <li>
+        <app-dropdown-menu label="Arborización" [dropdownId]="'002'">
+      <li>
+        <a *ngIf="menucenso" href="#/app/censo"
+          class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Censo
+          arboreo</a>
+      </li>
+      <li>
+        <a *ngIf="menuespacios" href="#/app/espacios"
+          class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Espacios</a>
+      </li>
+      </app-dropdown-menu>
+      </li>
+      <li>
+        <app-dropdown-menu label="Actividades Silviculturales" [dropdownId]="'003'">
+
+      <li>
+        <a href="#/app/actividades/lista/Siembra"
+          class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Actividades
+          de Siembra</a>
+      </li>
+      <li>
+        <a href="#/app/actividades/lista/Poda"
+          class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Actividades
+          de Poda</a>
+      </li>
+      <li>
+        <a href="#/app/actividades/lista/Tala"
+          class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Actividades
+          de Tala</a>
+      </li>
+      <li>
+        <a href="#/app/actividades/intervenciones/Solicitada"
+          class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Actividades
+          Solicitada</a>
+      </li>
+      <li>
+        <a href="#/app/actividades/intervenciones/Aprobada"
+          class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Actividades
+          Aprobada</a>
+      </li>
+      <li>
+        <a href="#/app/actividades/intervenciones/Ejecutada"
+          class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Actividades
+          Ejecutada</a>
+      </li>
+      <li>
+        <a href="#/app/actividades/intervenciones/Rechazada"
+          class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Actividades
+          Rechazada</a>
+      </li>
+
+      </app-dropdown-menu>
+      </li>
+      <li>
+        <app-dropdown-menu label="Reportes" [dropdownId]="'003'">
+
+          <!-- <li>
+        <a  *ngIf="reportes" href="#/app/reportes"
+          class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Censo Arboleo</a>
+      </li> -->
+      <li>
+        <a href="#/app/reportes/masreportes"
+          class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Reportes</a>
+      </li>
+      </app-dropdown-menu>
+      </li>
+
+    </ul>
   </div>
 </aside>
-
-
-

@@ -4,21 +4,21 @@ export type ObjColors = Record<string, Record<string, boolean>>;
 
 export const COLORS: ObjColors = {
   success: {
-    'bg-success-700': true,
-    'hover:bg-success-800': true,
-    'focus:ring-success-300': true,
+    'bg-green-700': true,
+    'hover:bg-green-800': true,
+    'focus:ring-green-300': true,
     'text-white': true,
   },
   primary: {
-    'bg-primary-700': true,
-    'hover:bg-primary-800': true,
-    'focus:ring-primary-300': true,
+    'bg-blue-700': true,
+    'hover:bg-blue-800': true,
+    'focus:bg-blue-400': true,
     'text-white': true,
   },
   danger: {
-    'bg-danger-700': true,
-    'hover:bg-danger-800': true,
-    'focus:ring-danger-300': true,
+    'bg-red-700': true,
+    'hover:bg-red-800': true,
+    'focus:ring-red-300': true,
     'text-white': true,
   },
   light: {
@@ -62,13 +62,13 @@ export const COLORS: ObjColors = {
 
 export const BACKGROUNDS: ObjColors = {
   success: {
-    'bg-success-600': true,
+    'bg-green-600': true,
   },
   primary: {
-    'bg-primary-600': true,
+    'bg-blue-600': true,
   },
   danger: {
-    'bg-danger-600': true,
+    'bg-red-600': true,
   },
   light: {
     'bg-gray-600': true,
@@ -95,13 +95,13 @@ export const BACKGROUNDS: ObjColors = {
 
 export const NAVBAR_BACKGROUNDS: ObjColors = {
   success: {
-    'bg-success-700': true,
+    'bg-green-700': true,
   },
   primary: {
-    'bg-primary-700': true,
+    'bg-blue-700': true,
   },
   danger: {
-    'bg-danger-700': true,
+    'bg-red-700': true,
   },
   light: {
     'bg-gray-700': true,

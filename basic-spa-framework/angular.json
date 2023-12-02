@@ -18,6 +18,9 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/basic-spa-framework",
+            "allowedCommonJsDependencies": [
+              "sweetalert2"
+            ],
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -30,6 +33,9 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/primeicons/primeicons.css",
+              "node_modules/primeng/resources/themes/nova/theme.css",
+              "node_modules/primeng/resources/primeng.min.css",
               "@angular/material/prebuilt-themes/purple-green.css",
               "src/styles.scss"
             ],

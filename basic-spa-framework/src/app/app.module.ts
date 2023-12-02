@@ -11,21 +11,30 @@ import { environment } from 'src/environments/environment';
 import { AuthServiceMock } from './core/services/auth.service.mock';
 import { AuthService } from './core/services/auth.service';
 import { RenewTokenService } from './core/services/renew-token.service';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptor } from './core/Interceptor/token-interceptor';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { AuthGuard } from './core/guards/auth.guard';
+import { AuthGuardMock } from './core/guards/auth.guard.mock';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     OverlayModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [
     { provide: 'API_URL', useValue: environment.API_URL },
+    { provide: AuthGuard, useClass: AuthGuardMock },
     { provide: AuthService, useClass: AuthServiceMock },  //TODO: comment to remove mock
-    { provide: RenewTokenService, useClass: RenewTokenServiceMock } //TODO: comment to remove mock
+    { provide: RenewTokenService, useClass: RenewTokenService }, //TODO: comment to remove mock
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
   ],
   bootstrap: [AppComponent]
 })

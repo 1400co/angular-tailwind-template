@@ -1,0 +1,58 @@
+<div class="flex justify-between mb-4">
+  <h1 class="text-lg font-semibold">Módulo</h1>
+</div>
+<br>
+<form [formGroup]="form">
+  <div class="card mb-2">
+    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+      <div class="bg-gray-500 text-white px-4 py-2">Información del modulo
+      </div>
+      <div class="p-6">
+        <div class="grid gap-6 mb-6 md:grid-cols-4">
+          <div>
+            <label for="first_name" class="block mb-2 text-xs font-medium text-gray-900 dark:text-gray-900">Nombre
+              del módulo:</label>
+            <input type="text" formControlName="moduleName" id="moduleName"
+              class="bg-gray-50 border  border-primary-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="John" [ngClass]="{'required': !field('moduleName').isValid()}">
+          </div>
+        </div>
+        <div class="flex justify-end space-x-4">
+          <!--<app-btn *ngIf="!isNew && mostraDelete" typeBtn="submit" color="yellow" [loading]="statusDetail === 'loading'"
+            (click)="mostrarConfirmacion()">Borrar</app-btn>-->
+            <button  type="submit" *ngIf="!isNew && mostraDelete" (click)="mostrarConfirmacion()" class="btncolor w-48 w-full text-white focus:ring-4 focus:outline-none font-medium rounded-full  px-2.5 py-2.5 text-center" >Borrar</button>
+         
+            <button  type="submit" *ngIf="isNew" (click)="Guardar()" class="btnazul w-48 w-full text-white focus:ring-4 focus:outline-none font-medium rounded-full  px-2.5 py-2.5 text-center" >Guardar</button>
+         
+            <!--<app-btn *ngIf="isNew" typeBtn="submit" color="primary" [loading]="statusDetail === 'loading'"
+            >(click)="Guardar()">Guardar</app-btn>-->
+            <button  type="submit" *ngIf="!isNew && mostraUpdate" (click)="Actualizar()" class="btnazul w-48 w-full text-white focus:ring-4 focus:outline-none font-medium rounded-full  px-2.5 py-2.5 text-center" >Actualizar</button>
+         
+          <!--<app-btn *ngIf="!isNew && mostraUpdate" typeBtn="submit" color="primary" [loading]="statusDetail === 'loading'"
+            (click)="Actualizar()">Actualizar</app-btn>-->
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <br>
+  <div *ngIf="statusDetail==='error'" class="alert alert-danger" role="alert">
+    Ha ocurrido un error al crear el rol.
+  </div>
+  <div *ngIf="statusDetail==='success'" class="alert alert-success" role="alert">
+    La operacion se ha realizado con exito.
+  </div>
+</form>
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Eliminar</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="c('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <p>¿Estas seguro que deseas eliminar?</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">No</button>
+    <button type="button" class="btn btn-outline-dark" (click)="c(Borrar())">Si</button>
+  </div>
+</ng-template>

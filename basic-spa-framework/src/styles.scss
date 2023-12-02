@@ -3,4 +3,8 @@
 @tailwind components;
 @tailwind utilities;
 @import '@angular/cdk/overlay-prebuilt.css';
-
+@import "~@ng-select/ng-select/themes/default.theme.css";
+.required
+{
+  border: 1px solid red !important;
+}

@@ -49,6 +49,12 @@ ngOnInit(): void {
       case "faUser":
                     this.iconValue = fasolid.faUser;
                     break;
+      case "faShareFromSquare":
+          this.iconValue = fasolid.faShareFromSquare;
+          break;
+      case "faSpinner":
+                    this.iconValue = fasolid.faSpinner;
+                    break;
       default:
         this.iconValue = fasolid.fa0;
           break;
