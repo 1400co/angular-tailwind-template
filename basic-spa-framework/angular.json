@@ -78,10 +78,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "basic-spa-framework:build:production"
+              "buildTarget": "basic-spa-framework:build:production"
             },
             "development": {
-              "browserTarget": "basic-spa-framework:build:development"
+              "buildTarget": "basic-spa-framework:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -89,7 +89,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "basic-spa-framework:build"
+            "buildTarget": "basic-spa-framework:build"
           }
         },
         "test": {
