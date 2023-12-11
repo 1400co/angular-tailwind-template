@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { getCookie, setCookie, removeCookie } from 'typescript-cookie';
-import jwt_decode, { JwtPayload } from "jwt-decode";
+
 import { catchError, of, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { ResponseLogin } from '../models/auth.model';
 import { PermisosDto } from '../models/permisos-dto';
+import { JwtPayload, jwtDecode } from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,7 @@ export class TokenService {
   constructor(private http: HttpClient) { }
 
   savePermisos(token: PermisosDto[]) {
-   
+
     const tokenString = JSON.stringify(token);
     setCookie('tran-arbo-permisos', tokenString,{ expires: 365, path: '/' });
   }
@@ -87,9 +88,9 @@ export class TokenService {
     if (!token) {
       return false;
     }
-    const decodeToken = jwt_decode<JwtPayload>(token);
-    if (decodeToken && decodeToken?.exp) {
-       const expirationTime = new Date(decodeToken.exp * 1000);
+    const decoded = jwtDecode<JwtPayload>(token);
+    if (decoded && decoded.exp) {
+       const expirationTime = new Date(decoded.exp * 1000);
        const today = new Date();
        return expirationTime > today;
      }
@@ -135,6 +136,6 @@ removeAllTokens(){
 
   }
 
-
-
 }
+
+

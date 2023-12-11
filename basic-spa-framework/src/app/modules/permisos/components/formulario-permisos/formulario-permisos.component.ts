@@ -6,7 +6,7 @@ import { RolModuleDto } from 'src/app/core/models/rol-module-dto';
 import { RolesDto } from 'src/app/core/models/roles-dto';
 import { ModuleService } from 'src/app/core/services/modules-service';
 import { RolesService } from 'src/app/core/services/roles-service';
-import { SweetAlertService } from 'src/app/core/services/sweet-alert.service';
+import { SweetAlertService } from 'src/app/shared/core/services/sweet-alert.service';
 import {Habilitaracciones } from 'src/app/core/services/habilitaracciones.service';
 @Component({
   selector: 'app-formulario-permisos',
@@ -67,7 +67,7 @@ export class FormularioPermisosComponent {
         resultados.forEach(resultado => {
              this.mostraDelete=resultado.eliminar;
              this.mostraUpdate=resultado.editar;
-            
+
         });
     }
   }
@@ -103,7 +103,7 @@ export class FormularioPermisosComponent {
 
   Guardar()
   {
-    
+
     if(this.form.invalid)
     {
       this.form.markAllAsTouched();

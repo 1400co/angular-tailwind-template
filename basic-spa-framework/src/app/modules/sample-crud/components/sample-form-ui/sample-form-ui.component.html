@@ -1,1 +1,12 @@
-<p>sample-form-ui works!</p>
+<h3>Country</h3>
+
+<fw-dynamic-form
+  [vm]="country"
+  [vmDefinition]="countryDefinition"
+  [operation]="operation"
+  [errorMessage]="errorMessage"
+  (update)="updateCountry($event)"
+  (create)="createCountry($event)"
+>
+</fw-dynamic-form>
+

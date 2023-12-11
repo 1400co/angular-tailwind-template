@@ -1,3 +1,4 @@
+import { SharedModule } from 'src/app/shared/shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -17,7 +18,8 @@ import { SampleListUiComponent } from './components/sample-list-ui/sample-list-u
   ],
   imports: [
     CommonModule,
-    SampleCrudRoutingModule
+    SampleCrudRoutingModule,
+    SharedModule
   ]
 })
 export class SampleCrudModule { }

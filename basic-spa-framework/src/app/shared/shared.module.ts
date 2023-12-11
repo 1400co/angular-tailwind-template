@@ -8,15 +8,16 @@ import { TableModule } from 'primeng/table';
 import { PaginatorModule } from 'primeng/paginator';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
-import { LineasComponent } from './components/lineas/lineas.component';
+import { DynamicFieldComponent } from './dynamic-forms/dynamic-field/dynamic-field.component';
+import { DynamicFormComponent } from './dynamic-forms/dynamic-form/dynamic-form.component';
 
 
 
 @NgModule({
-  declarations: [ButtonComponent,LineasComponent,
-    CustomIconsComponent, ModalComponent],
+  declarations: [ButtonComponent,
+    CustomIconsComponent, ModalComponent, DynamicFieldComponent, DynamicFormComponent],
   imports: [CommonModule, FontAwesomeModule, TableModule, PaginatorModule, ReactiveFormsModule, NgSelectModule],
-  exports:[ButtonComponent,  CustomIconsComponent,  ModalComponent, TableModule,LineasComponent,
-    PaginatorModule,  NgSelectModule]
+  exports:[ButtonComponent,  CustomIconsComponent,  ModalComponent, TableModule,
+    PaginatorModule,  NgSelectModule, DynamicFieldComponent, DynamicFormComponent]
 })
 export class SharedModule { }

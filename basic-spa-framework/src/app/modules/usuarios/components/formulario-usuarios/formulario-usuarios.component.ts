@@ -5,7 +5,7 @@ import { RolesDto } from 'src/app/core/models/roles-dto';
 import { UserDto } from 'src/app/core/models/user-dto.model';
 import { UserInRolesDto } from 'src/app/core/models/user-in-roles-dto';
 import { RolesService } from 'src/app/core/services/roles-service';
-import { SweetAlertService } from 'src/app/core/services/sweet-alert.service';
+import { SweetAlertService } from 'src/app/shared/core/services/sweet-alert.service';
 import { UserInRolesService } from 'src/app/core/services/user-in-roles-service';
 import {Habilitaracciones } from 'src/app/core/services/habilitaracciones.service';
 

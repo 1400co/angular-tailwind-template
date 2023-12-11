@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { RequestStatus } from 'src/app/core/models/request-status.model';
 import { RolesDto } from 'src/app/core/models/roles-dto';
-import { SweetAlertService } from 'src/app/core/services/sweet-alert.service';
+import { SweetAlertService } from 'src/app/shared/core/services/sweet-alert.service';
 import {Habilitaracciones } from 'src/app/core/services/habilitaracciones.service';
 @Component({
   selector: 'app-formulario-roles',
@@ -57,7 +57,7 @@ export class FormularioRolesComponent {
         resultados.forEach(resultado => {
              this.mostraDelete=resultado.eliminar;
              this.mostraUpdate=resultado.editar;
-            
+
         });
     }
   }
