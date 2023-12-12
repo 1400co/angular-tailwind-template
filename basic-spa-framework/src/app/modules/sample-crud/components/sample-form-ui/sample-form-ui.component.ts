@@ -17,20 +17,30 @@ export class SampleFormUiComponent {
       type: 'number',
       isId: true,
       label: 'Id',
-      required: true
+      required: true,
+      data:null,
+      keyValue:"",
+      labelValue:""
+
     },
     { key: 'name',
       type: 'string',
       isId: false,
       label: 'Country Name',
-      required: true
+      required: true,
+      data:null,
+      keyValue:"",
+      labelValue:""
     },
     {
       key: 'epiIndex',
       type: 'number',
       isId: false,
       label: 'EPI Index',
-      required: true
+      required: true,
+      data:null,
+      keyValue:"",
+      labelValue:""
     }
   ];
   errorMessage: string;
@@ -38,7 +48,10 @@ export class SampleFormUiComponent {
 
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private dataService: AppDataService) { }
+              private dataService: AppDataService)
+              {
+
+              }
 
   createCountry(country: Country) {
     country.id = 0;
@@ -49,6 +62,20 @@ export class SampleFormUiComponent {
       );
   }
 
+  // cambiar(){
+  //   this.countryDefinition.push({
+  //     key: 'Nuevo',
+  //     type: 'string',
+  //     isId: false,
+  //     label: 'Nuevo',
+  //     required: true,
+  //     data:null,
+  //     keyValue:"",
+  //     labelValue:""
+  //   });
+  // }
+
+
   ngOnInit() {
     this.operation = this.route.snapshot.params['operation'];
 
@@ -58,7 +85,11 @@ export class SampleFormUiComponent {
     else
       this.dataService.getCountry(this.route.snapshot.params['id'])
         .subscribe((country: Country) => this.country = country);
+
+
   }
+
+
 
   updateCountry(country: Country) {
     this.errorMessage = null;

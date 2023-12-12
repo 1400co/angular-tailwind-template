@@ -3,5 +3,8 @@ export interface FieldDefinition {
   type: string,
   isId: boolean,
   label: string,
-  required: boolean
+  required: boolean,
+  data:any[],
+  keyValue:string,
+  labelValue:string
 }
