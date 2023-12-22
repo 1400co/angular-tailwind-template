@@ -11,6 +11,7 @@ import { AppDataService } from '../../services/app-data.service';
 })
 export class SampleFormUiComponent {
   country: Country;
+  listItems: Country[] = [];
   countryDefinition: Array<FieldDefinition> = [
     {
       key: 'id',
@@ -41,7 +42,28 @@ export class SampleFormUiComponent {
       data:null,
       keyValue:"",
       labelValue:""
+    },
+    {
+      key: 'sampleDate',
+      type: 'date',
+      isId: false,
+      label: 'Date:',
+      required: false,
+      data:null,
+      keyValue:"",
+      labelValue:""
+    },
+    {
+      key: 'sampleCheck',
+      type: 'checkbox',
+      isId: false,
+      label: 'Is valid:',
+      required: false,
+      data:null,
+      keyValue:"",
+      labelValue:""
     }
+
   ];
   errorMessage: string;
   operation: string;
@@ -50,7 +72,7 @@ export class SampleFormUiComponent {
               private router: Router,
               private dataService: AppDataService)
               {
-
+                this.getListItems();
               }
 
   createCountry(country: Country) {
@@ -60,6 +82,21 @@ export class SampleFormUiComponent {
       c => this.router.navigate(['/app/demo']),
       err => this.errorMessage = 'Error creating country'
       );
+  }
+
+  getListItems()
+  {
+    this.dataService.getCountries().subscribe((country: Country[]) => this.listItems = country)
+    this.countryDefinition.push({
+      key: 'sampleSelect',
+      type: 'select',
+      isId: false,
+      label: 'List:',
+      required: false,
+      data: this.listItems,
+      keyValue:"id",
+      labelValue:"name"
+    })
   }
 
   ngOnInit() {

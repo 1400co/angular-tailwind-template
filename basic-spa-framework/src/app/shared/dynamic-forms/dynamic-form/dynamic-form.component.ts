@@ -60,7 +60,7 @@ export class DynamicFormComponent implements OnChanges, OnInit {
   }
 
   clearForm() {
-    debugger
+    
     if(!this.viewModelDefinition)
       return;
 

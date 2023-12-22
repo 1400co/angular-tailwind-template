@@ -1,6 +1,6 @@
 export interface FieldDefinition {
   key: string,
-  type: string,
+  type: FiledTypes,
   isId: boolean,
   label: string,
   required: boolean,
@@ -8,3 +8,5 @@ export interface FieldDefinition {
   keyValue:string,
   labelValue:string
 }
+
+export type FiledTypes = 'string' | 'number' | 'date' | 'checkbox' | 'select';
