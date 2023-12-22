@@ -1,8 +1,7 @@
-<div>
-  <!-- <form (ngSubmit)="onSubmit()" [formGroup]="form"> -->
-  <form  [formGroup]="form">
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+  <form [formGroup]="form">
 
-    <div *ngFor="let field of vmDefinition">
+    <div *ngFor="let field of viewModelDefinition">
       <fw-dynamic-field [field]="field"
                         [form]="form"
                         [operation]="operation"
@@ -10,26 +9,26 @@
       </fw-dynamic-field>
     </div>
 
-    <div *ngIf="errorMessage " class="alert alert-danger">
+    <div *ngIf="errorMessage" class="p-4 bg-red-100 text-red-700 border border-red-400 rounded">
       {{ errorMessage }}
     </div>
 
-    <div *ngIf="status != 'waiting'">
-      <div *ngIf="operation === 'details'">
-        <button type="button" class="btn" (click)="onBack()" >Back</button>
-        <button type="button" class="btn btn-primary" (click)="onEdit()" >Edit</button>
+    <div *ngIf="status != 'waiting'" class="mt-4">
+      <div *ngIf="operation === 'details'" class="flex space-x-2">
+        <button type="button" class="bg-gray-200 text-gray-800 rounded px-4 py-2" (click)="onBack()">Back</button>
+        <button type="button" class="bg-blue-500 text-white rounded px-4 py-2" (click)="onEdit()">Edit</button>
       </div>
-      <div *ngIf="operation === 'edit'">
-        <button type="button" class="btn" (click)="onCancel()" >Cancel</button>
-        <button type="button" class="btn btn-primary" (click)="onSave()" >Save</button>
+      <div *ngIf="operation === 'edit'" class="flex space-x-2">
+        <button type="button" class="bg-gray-200 text-gray-800 rounded px-4 py-2" (click)="onCancel()">Cancel</button>
+        <button type="button" class="bg-blue-500 text-white rounded px-4 py-2" (click)="onSave()">Save</button>
       </div>
-      <div *ngIf="operation === 'create'">
-        <button type="button" class="btn" (click)="onBack()" >Back</button>
-        <button type="button" class="btn btn-primary" (click)="onCreate()" >Create</button>
+      <div *ngIf="operation === 'create'" class="flex space-x-2">
+        <button type="button" class="bg-gray-200 text-gray-800 rounded px-4 py-2" (click)="onBack()">Back</button>
+        <button type="button" class="bg-blue-500 text-white rounded px-4 py-2" (click)="onCreate()">Create</button>
       </div>
     </div>
 
-    <div *ngIf="status === 'waiting'">
+    <div *ngIf="status === 'waiting'" class="mt-4">
       Waiting...
     </div>
 

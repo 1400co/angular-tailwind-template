@@ -1,15 +1,15 @@
-<h3>Country</h3>
-
-<fw-dynamic-form
-  [vm]="country"
-  [vmDefinition]="countryDefinition"
-  [operation]="operation"
-  [errorMessage]="errorMessage"
-  (update)="updateCountry($event)"
-  (create)="createCountry($event)"
->
-</fw-dynamic-form>
-
-<!-- <button (click)="cambiar()">
-cambiar
-</button> -->
+<div class="bg-white rounded-xl shadow-md overflow-hidden">
+  <div class="p-8">
+    <h3 class="text-lg leading-tight font-medium text-black">Country</h3>
+    <div class="mt-2 text-gray-500">
+      <fw-dynamic-form
+        [vm]="country"
+        [vmDefinition]="countryDefinition"
+        [operation]="operation"
+        [errorMessage]="errorMessage"
+        (update)="updateCountry($event)"
+        (create)="createCountry($event)"
+      ></fw-dynamic-form>
+    </div>
+  </div>
+</div>

@@ -1,22 +1,23 @@
 <div [hidden]="operation === 'create' && field.isId" [formGroup]="form">
-
   <div [ngSwitch]="field.type">
 
-    <div *ngSwitchCase="'string'" class="form-group">
-      <label [htmlFor]="field.key">{{ field.label }}</label>
-      <input class="form-control" [formControlName]="field.key" [id]="field.key"
-              [readonly]="operation == 'details' || field.isId">
+    <div *ngSwitchCase="'string'" class="mb-4">
+      <label [htmlFor]="field.key" class="block text-sm font-medium text-gray-700">{{ field.label }}</label>
+      <input class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+             [formControlName]="field.key" [id]="field.key"
+             [readonly]="operation == 'details' || field.isId">
     </div>
 
-    <div *ngSwitchCase="'number'" class="form-group">
-      <label [htmlFor]="field.key">{{ field.label }}</label>
-      <input class="form-control" [formControlName]="field.key" [id]="field.key" 
-              [readonly]="operation == 'details' || field.isId"
-              type="number">
+    <div *ngSwitchCase="'number'" class="mb-4">
+      <label [htmlFor]="field.key" class="block text-sm font-medium text-gray-700">{{ field.label }}</label>
+      <input class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+             [formControlName]="field.key" [id]="field.key"
+             [readonly]="operation == 'details' || field.isId"
+             type="number">
     </div>
 
     <div *ngIf="form.get(field.key).hasError('required') && (submitted || form.get(field.key).touched)"
-          class="alert alert-danger">
+         class="mt-2 text-sm text-red-600">
       {{ field.label }} is required.
     </div>
 

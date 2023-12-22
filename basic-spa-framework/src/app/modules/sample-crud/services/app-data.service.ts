@@ -52,13 +52,13 @@ export class AppDataService {
 
   getCountry(id: number) : Observable<Country> {
     var country = this.countries.find(c => c.id == id);
-    return of(country).pipe(delay(2000));
+    return of(country).pipe(delay(1000));
   }
 
   updateCountry(updatedCountry: Country) : Observable<any> {
     var country = this.countries.find(c => c.id == updatedCountry.id);
     Object.assign(country, updatedCountry);
-    return of(country).pipe(delay(2000));
+    return of(country).pipe(delay(1000));
     //return Observable.of({}).delay(2000).flatMap(x=>Observable.throw(''));
   }
 

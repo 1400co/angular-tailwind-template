@@ -12,17 +12,29 @@ import { FieldDefinition } from '../field-definition';
 })
 export class DynamicFormComponent implements OnChanges, OnInit {
 
-  // @Input() vm: any;
+  viewModel:any;
+  viewModelDefinition:Array<FieldDefinition>;
+
   @Input()
   set vm(data:any)
   {
     if(data)
     {
-      this.clearForm(data);
+      this.viewModel = data;
+      this.checkAndInitForm();
     }
   };
 
-  @Input() vmDefinition: Array<FieldDefinition>;
+  @Input()
+  set vmDefinition(data: Array<FieldDefinition>)
+  {
+    if(data)
+    {
+      this.viewModelDefinition = data;
+      this.checkAndInitForm();
+    }
+  }
+
   @Input() operation: string;
   @Input() errorMessage: string;
   @Output() update: EventEmitter<any> = new EventEmitter();
@@ -35,13 +47,26 @@ export class DynamicFormComponent implements OnChanges, OnInit {
 
   constructor(private router: Router,
               private route: ActivatedRoute,
-              private location: Location) { }
+              private location: Location)
+              {
 
-  clearForm(data:any) {
-    
+              }
+
+
+  private checkAndInitForm() {
+    if (this.viewModel && this.viewModelDefinition) {
+      this.clearForm();
+    }
+  }
+
+  clearForm() {
+    debugger
+    if(!this.viewModelDefinition)
+      return;
+
     let group = {};
-    this.vmCopy = Object.assign({}, data);
-    this.vmDefinition.forEach(field => {
+    this.vmCopy = Object.assign({}, this.viewModel);
+    this.viewModelDefinition.forEach(field => {
       group[field.key] = field.required ? new FormControl(this.vmCopy[field.key], Validators.required)
                                               : new FormControl(this.vmCopy[field.key]);
     });
@@ -52,15 +77,18 @@ export class DynamicFormComponent implements OnChanges, OnInit {
      if (changes['errorMessage'].currentValue && this.status === 'waiting') {
        this.status = "";
      }
+     if (changes['viewModel'] && changes['viewModelDefinition']) {
+      this.clearForm();
+     }
   }
 
   ngOnInit() {
-    //this.clearForm();
-
     this.route.params.subscribe(params => {
       this.operation = params['operation'];
-      //this.clearForm();
+
      });
+
+
   }
 
   onBack() {

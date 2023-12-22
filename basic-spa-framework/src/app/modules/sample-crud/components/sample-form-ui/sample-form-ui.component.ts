@@ -57,36 +57,20 @@ export class SampleFormUiComponent {
     country.id = 0;
     this.errorMessage = null;
     this.dataService.createCountry(country).subscribe(
-      c => this.router.navigate(['/authenticated/country-maint']),
+      c => this.router.navigate(['/app/demo']),
       err => this.errorMessage = 'Error creating country'
       );
   }
-
-  // cambiar(){
-  //   this.countryDefinition.push({
-  //     key: 'Nuevo',
-  //     type: 'string',
-  //     isId: false,
-  //     label: 'Nuevo',
-  //     required: true,
-  //     data:null,
-  //     keyValue:"",
-  //     labelValue:""
-  //   });
-  // }
-
 
   ngOnInit() {
     this.operation = this.route.snapshot.params['operation'];
 
     if (this.operation === 'create') {
-      this.country = { id: 0, name: "", epiIndex: null };
+      this.country = { id: 0, name: "", epiIndex: 0 };
     }
     else
       this.dataService.getCountry(this.route.snapshot.params['id'])
         .subscribe((country: Country) => this.country = country);
-
-
   }
 
 
@@ -94,7 +78,7 @@ export class SampleFormUiComponent {
   updateCountry(country: Country) {
     this.errorMessage = null;
     this.dataService.updateCountry(country).subscribe(
-      c => this.router.navigate(['/authenticated/country-maint']),
+      c => this.router.navigate(['/app/demo']),
       err => this.errorMessage = 'Error updating country'
       );
   }
