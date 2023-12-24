@@ -1,5 +1,98 @@
 
 
+   <div class="px-4 md:px-10 mx-auto w-full">
+     <div>
+       <!-- Card stats -->
+       <div class="flex flex-wrap " >
+         <div class="flex-grow lg:w-4/12 xl:w-2/12  pr-4    mx-2 my-4 min-w-300" >
+           <app-card-stats
+             statSubtitle="TRAFICO PAGINAS"
+             statTitle="350,897"
+             statArrow="up"
+             statPercent="3.48"
+             statPercentColor="text-emerald-500"
+             statDescripiron="Trafico mensual"
+             statIconName="faChartBar"
+             statIconColor="bg-red-500"
+           ></app-card-stats>
+         </div>
+         <div class="flex-grow lg:w-4/12 xl:w-2/12 pl-2.5  pr-4   mx-2 my-4 min-w-300">
+           <app-card-stats
+             statSubtitle="NUEVOS USUARIOS"
+             statTitle="2,356"
+             statArrow="down"
+             statPercent="3.48"
+             statPercentColor="text-red-500"
+             statDescripiron="última semana"
+             statIconName="faUserTie"
+             statIconColor="bg-yellow-500"
+           ></app-card-stats>
+         </div>
+         <div class="flex-grow lg:w-4/12 xl:w-2/12 pl-2.5  pr-4   mx-2 my-4 min-w-300" >
+           <app-card-stats
+             statSubtitle="VENTAS MENSUALES"
+             statTitle="924"
+             statArrow="down"
+             statPercent="1.10"
+             statPercentColor="text-orange-500"
+             statDescripiron="Ventas ayer"
+             statIconName="faCommentsDollar"
+             statIconColor="bg-pink-500"
+           ></app-card-stats>
+         </div>
+         <div class="flex-grow lg:w-4/12 xl:w-2/12  pl-2.5 mx-2 my-4 min-w-300"  >
+           <app-card-stats
+             statSubtitle="GANANCIAS"
+             statTitle="49,65%"
+             statArrow="up"
+             statPercent="12"
+             statPercentColor="text-emerald-500"
+             statDescripiron="Ganancia mensual"
+             statIconName="faPercent"
+             statIconColor="bg-green-500"
+           ></app-card-stats>
+         </div>
+         
+       </div>
+     </div>
+   </div>
+ 
+ <div class="flex items-start justify-between flex-nowrap mt-4">
+   <div class="w-full md:w-1/2 px-4">
+     <app-card-page-visits></app-card-page-visits>
+   </div>
+   <div class="w-full md:w-1/2 px-4">
+     <app-card-social-traffic></app-card-social-traffic>
+   </div>
+ </div>
+ <div class="flex items-start justify-between flex-nowrap ">
+   <div class="w-full md:w-1/2 px-4">
+      <div class="bg-white rounded-lg shadow-md p-4 mb-4">
+         <div class="border-b border-gray-200 pb-2 mb-2">
+           <h6 class="text-xl font-medium text-blue-600">Notas importantes</h6>
+         </div>
+         <div class="text-gray-700">
+            ¡Hola equipo!<br>
+
+            Asunto: ¡Felicitaciones por el gran trabajo!<br><br>
+
+            Solo quería tomar un momento para agradecerles a todos por su dedicación y esfuerzo. Su trabajo duro y compromiso han sido fundamentales para nuestro éxito.<br>
+
+            Estoy muy orgulloso de lo que hemos logrado juntos. Gracias por ser parte de este equipo tan especial.<br><br>
+
+            ¡Sigamos así!
+         </div>
+       </div>
+   </div>
+   <div class="w-full md:w-1/2 px-4">
+      <app-card-line-chart></app-card-line-chart>
+   </div>
+ </div>
+
+
+<!--
+     
+     
      <div class="grid grid-cols-3 gap-4 mb-4">
         <div class="flex items-center justify-center h-24 rounded bg-gray-50 dark:bg-gray-800">
            <p class="text-2xl text-gray-400 dark:text-gray-500">+</p>
@@ -45,3 +138,4 @@
            <p class="text-2xl text-gray-400 dark:text-gray-500">+</p>
         </div>
      </div>
+--> 

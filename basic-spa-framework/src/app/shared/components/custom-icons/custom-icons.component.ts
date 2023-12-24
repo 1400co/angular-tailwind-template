@@ -50,14 +50,53 @@ ngOnInit(): void {
                     this.iconValue = fasolid.faUser;
                     break;
       case "faShareFromSquare":
-          this.iconValue = fasolid.faShareFromSquare;
-          break;
+                  this.iconValue = fasolid.faShareFromSquare;
+                  break;
       case "faSpinner":
                     this.iconValue = fasolid.faSpinner;
                     break;
+      case "faCircleXmark":
+                  this.iconValue = fasolid.faCircleXmark;
+                  break;
+      case "faPercent":
+                this.iconValue = fasolid.faPercent;
+                break;
+      case "faCommentsDollar":
+                  this.iconValue = fasolid.faCommentsDollar;
+                  break;
+      case "faUserTie":
+                  this.iconValue = fasolid.faUserTie;
+                  break;
+          case "faChartBar":
+                  this.iconValue = fasolid.faChartBar;
+                  break;
+        case "faArrowUp":
+                  this.iconValue = fasolid.faArrowUp;
+                  break;
+      case "faArrowDown":
+                  this.iconValue = fasolid.faArrowDown;
+                  break;
+      case "faUsersGear":
+                  this.iconValue = fasolid.faUsersGear;
+                  break;
+      case "faGamepad":
+                  this.iconValue = fasolid.faGamepad;
+                  break;
+      case "faPerson":
+            this.iconValue = fasolid.faPerson;
+             break;
+      case "faUsers":
+              this.iconValue = fasolid.faUsers;
+               break;
+    case "faLayerGroup":
+                  this.iconValue = fasolid.faLayerGroup;
+                   break;
+    case "faUnlock":
+                    this.iconValue = fasolid.faUnlock;
+                     break;
       default:
         this.iconValue = fasolid.fa0;
-          break;
+          break; 
       }
 
   }

@@ -113,27 +113,29 @@
         </a>
       </li>
       <li>
-        <app-dropdown-menu label="Admin" [dropdownId]="'001'">
-      <li>
+        <app-dropdown-menu [nameIcon]="'faUsersGear'"  label="Admin" [dropdownId]="'001'">
+      <li> 
+         
         <a *ngIf="menuusuario" href="#/app/usuarios"
-          class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group  dark:text-white dark:hover:bg-gray-700">Users</a>
+          class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group  dark:text-white dark:hover:bg-gray-700">
+          <fw-custom-icons [iconName]="'faPerson'"> </fw-custom-icons> Users</a>
       </li>
       <li>
         <a *ngIf="menuroles" href="#/app/roles"
-          class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Roles</a>
+          class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"><fw-custom-icons [iconName]="'faUsers'"> </fw-custom-icons>Roles</a>
       </li>
       <li>
         <a *ngIf="menupermisos" href="#/app/permisos"
-          class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Permissions</a>
+          class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"><fw-custom-icons [iconName]="'faUnlock'"> </fw-custom-icons>Permissions</a>
       </li>
       <li>
         <a *ngIf="menumodules" href="#/app/modules"
-          class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Modules</a>
+          class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"><fw-custom-icons [iconName]="'faLayerGroup'"> </fw-custom-icons>Modules</a>
       </li>
       </app-dropdown-menu>
       </li>
       <li>
-        <app-dropdown-menu label="Demo" [dropdownId]="'002'">
+        <app-dropdown-menu [nameIcon]="'faGamepad'"  label="Demo" [dropdownId]="'002'">
           <li>
             <a  href="#/app/demo"
               class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group  dark:text-white dark:hover:bg-gray-700">Demo</a>

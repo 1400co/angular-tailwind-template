@@ -10,4 +10,5 @@ import { TemplateColor } from './core/models/template-color';
 export class AppComponent {
   title = 'basic-spa-framework';
   templateColor : TemplateColor =  environment.templateColor as TemplateColor;
+  
 }

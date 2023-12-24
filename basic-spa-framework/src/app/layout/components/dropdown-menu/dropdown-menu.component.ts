@@ -8,7 +8,7 @@ import { Component, Input } from '@angular/core';
 export class DropdownMenuComponent {
   @Input() label: string;
   @Input() dropdownId: string;
-
+  @Input() nameIcon: string;
   isDropdownOpen = false;
 
   toggleDropdown() {
