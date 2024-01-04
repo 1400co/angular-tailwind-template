@@ -4,6 +4,7 @@
   <div  class="w-full  flex items-center justify-center h-screen">
     <div class="relative   p-4 border border-white rounded-lg overflow-hidden bg-opacity-90 bg-cover bg-center" style="background-image: url('../../../../assets/img/login.png'); height: 400px; width: 450px;">
       <app-login-form
+      [ErrorLogin]="ErrorLogin"
       (login)="Login($event)"></app-login-form>
     </div>
   </div>

@@ -1,6 +1,6 @@
 <form [formGroup]="form" class="space-y-6" (ngSubmit)="Login()">
     <div align="center">
-    
+
   <h5 class="text-xl font-medium text-gray-900 dark:text-white">Ingreso a la plataforma</h5>
 </div>
   <div>
@@ -11,6 +11,9 @@
   <div>
       <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Contraseña:</label>
       <input type="password" name="password" formControlName="password" id="password"  class="bg-transparent bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  " required>
+  </div>
+  <div *ngIf="ErrorLogin" class="text-red-500 text-sm">
+    Usuario o Contraseña no son correctos.
   </div>
   <!-- <div class="flex items-start">
       <div class="flex items-start">
@@ -25,7 +28,7 @@
      <button
         type="submit" class="btncolor w-48 w-full text-white hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-full  px-2.5 py-2.5 text-center" > Entrar </button>
 </div>
-  <!-- <div class="text-sm font-medium text-gray-500 dark:text-gray-300">
-      Not registered? <a routerLink="/register" class="text-blue-700 hover:underline dark:text-blue-500">Create account</a>
-  </div> -->
+   <div class="text-sm font-medium text-gray-500 dark:text-gray-300">
+      No estas registrado? <a routerLink="/register" class="text-blue-700 hover:underline dark:text-blue-500">Crear cuenta nueva</a>
+  </div>
 </form>

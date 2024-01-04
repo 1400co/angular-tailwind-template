@@ -30,8 +30,10 @@ import { AuthGuardMock } from './core/guards/auth.guard.mock';
   ],
   providers: [
     { provide: 'API_URL', useValue: environment.API_URL },
-    { provide: AuthGuard, useClass: AuthGuardMock },
-    { provide: AuthService, useClass: AuthServiceMock },  //TODO: comment to remove mock
+    // { provide: AuthGuard, useClass: AuthGuardMock },
+    // { provide: AuthService, useClass: AuthServiceMock },  //TODO: comment to remove mock
+    { provide: AuthGuard, useClass: AuthGuard },
+    { provide: AuthService, useClass: AuthService },
     { provide: RenewTokenService, useClass: RenewTokenService }, //TODO: comment to remove mock
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
     { provide: LocationStrategy, useClass: HashLocationStrategy },

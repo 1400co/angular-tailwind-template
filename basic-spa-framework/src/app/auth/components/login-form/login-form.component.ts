@@ -1,5 +1,5 @@
 import { AuthService } from './../../../core/services/auth.service';
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -12,6 +12,7 @@ export class LoginFormComponent {
 
   form:FormGroup;
   @Output() login= new EventEmitter();
+  @Input() ErrorLogin: boolean;
 
   constructor( private formbuilder:FormBuilder ){
     this.BuildForm();

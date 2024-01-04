@@ -10,6 +10,8 @@ import { AuthService } from 'src/app/core/services/auth.service';
 })
 export class LoginComponent {
 
+  ErrorLogin:boolean = false;
+
   constructor( private userService: AuthService,
     private router: Router){
 
@@ -19,10 +21,12 @@ export class LoginComponent {
   {
     this.userService.Login(data.user, data.password).subscribe({
       next:(result) => {
+        this.ErrorLogin = false;
         this.router.navigate(['/app/']);
       },
       error: () => {
         console.log("Error")
+        this.ErrorLogin = true;
       }
     });
   }

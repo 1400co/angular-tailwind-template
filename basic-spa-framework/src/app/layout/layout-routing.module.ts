@@ -26,6 +26,30 @@ const routes: Routes = [
         loadChildren: () =>
           import('../modules/sample-crud/sample-crud.module').then((m) => m.SampleCrudModule),
       },
+      {
+        path: 'usuarios',
+        canActivate: [ AuthGuard ],
+        loadChildren: () =>
+          import('../modules/usuarios/usuarios.module').then((m) => m.UsuariosModule),
+      },
+      {
+        path: 'roles',
+        canActivate: [ AuthGuard ],
+        loadChildren: () =>
+          import('../modules/roles/roles.module').then((m) => m.RolesModule),
+      },
+      {
+        path: 'modules',
+        canActivate: [ AuthGuard ],
+        loadChildren: () =>
+          import('../modules/module/module.module').then((m) => m.ModuleModule),
+      },
+      {
+        path: 'permisos',
+        canActivate: [ AuthGuard ],
+        loadChildren: () =>
+          import('../modules/permisos/permisos.module').then((m) => m.PermisosModule),
+      },
     ],
   },
 ];

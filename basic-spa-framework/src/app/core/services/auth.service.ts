@@ -1,6 +1,5 @@
 // src/app/mocks/user.service.mock.ts
 import { BehaviorSubject, Observable, of, tap } from 'rxjs';
-import { AuthUser } from '../models/auth-user.model';
 import { IAuthService } from './interfaces/iauth.service';
 import { environment } from 'src/environments/environment';
 import { User } from '../models/user.model';
@@ -16,7 +15,6 @@ import { Injectable } from '@angular/core';
 
 export class AuthService implements IAuthService {
 
-  mockUser: AuthUser = { id:'1', name:'Oscar Rueda', email:'usuario@yopmail.com', avatar:'', authToken:'token_123', refreshToken: 'refresh_123' };
 
   apiUrl = environment.API_URL;
   user$ = new BehaviorSubject<User | null>(null);
@@ -25,9 +23,7 @@ export class AuthService implements IAuthService {
     private tokenService: TokenService){
 
   }
-  // Login(username: string, password: string): Observable<ResponseLogin> {
-  //   throw new Error('Method not implemented.');
-  // }
+
 
   Login(user: string, password: string): Observable<ResponseLogin> {
     return this.http.post<ResponseLogin>(`${this.apiUrl}/api/token`, {
@@ -36,7 +32,7 @@ export class AuthService implements IAuthService {
     })
     .pipe(
       tap(response => {
-        
+
         this.tokenService.saveToken(response.authToken);
         this.tokenService.saveRefreshToken(response.refreshToken);
         this.tokenService.saveTokenId(response.userId)
