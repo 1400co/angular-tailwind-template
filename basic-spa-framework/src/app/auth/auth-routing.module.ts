@@ -3,6 +3,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './pages/login/login.component';
+import { NewPasswordComponent } from './pages/new-password/new-password.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,11 @@ const routes: Routes = [
     path: 'recovery',
     component: PasswordRecoveryComponent,
     title: 'recovery'
+  },
+  {
+    path: 'new-password',
+    component: NewPasswordComponent,
+    title: 'new-password'
   }
 ];
 

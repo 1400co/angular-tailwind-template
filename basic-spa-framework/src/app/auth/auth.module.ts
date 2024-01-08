@@ -8,7 +8,10 @@ import { PasswordRecoveryComponent } from './pages/password-recovery/password-re
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { RegisterFormComponent } from './components/register-form/register-form.component';
 import { PasswordRecoveryFormComponent } from './components/password-recovery-form/password-recovery-form.component';
+import { NewPasswordFormComponent } from './components/new-password-form/new-password-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NewPasswordComponent } from './pages/new-password/new-password.component';
+
 
 
 @NgModule({
@@ -18,7 +21,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     PasswordRecoveryComponent,
     LoginFormComponent,
     RegisterFormComponent,
-    PasswordRecoveryFormComponent
+    PasswordRecoveryFormComponent,
+    NewPasswordFormComponent,
+    NewPasswordComponent
   ],
   imports: [
     CommonModule,
