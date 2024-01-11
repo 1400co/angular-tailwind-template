@@ -15,16 +15,15 @@ const routes: Routes = [
         pathMatch: 'full'
       },
       {
+        path: 'demo',
+        loadChildren: () =>
+          import('../modules/sample-crud/sample-crud.module').then((m) => m.SampleCrudModule),
+      },
+      {
         path: 'home',
         canActivate: [ AuthGuard ],
         loadChildren: () =>
           import('../modules/home/home.module').then((m) => m.HomeModule),
-      },
-      {
-        path: 'demo',
-        canActivate: [ AuthGuard ],
-        loadChildren: () =>
-          import('../modules/sample-crud/sample-crud.module').then((m) => m.SampleCrudModule),
       },
       {
         path: 'usuarios',

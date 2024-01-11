@@ -28,7 +28,6 @@ export class AuthGuard implements AuthGuard {
       console.log("url"+modifiedUrl)
       const tienePermiso = this.validarPermisos(modifiedUrl);
 
-
       if (!tienePermiso) {
         console.log("No tienes permisos para acceder a esta ruta.");
         alert("No tienes permisos para ver esta p�gina");

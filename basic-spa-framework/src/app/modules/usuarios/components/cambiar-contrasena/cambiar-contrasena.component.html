@@ -1,8 +1,8 @@
-<!--<app-btn  typeBtn="submit"
+<app-btn  typeBtn="submit"
 color="green"
-(click)="toggleModal()"> Cambiar Contraseña </app-btn>-->
-<button  type="button" (click)="toggleModal()" class="btncolor w-48 w-full text-white hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-full px-2.5 py-2.5 text-center" > Cambiar Contraseña </button>
-    
+(click)="toggleModal()"> Cambiar Contraseña </app-btn>
+<!-- <button  type="button" (click)="toggleModal()" class="btncolor w-48 w-full text-white hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-full px-2.5 py-2.5 text-center" > Cambiar Contraseña </button> -->
+
 <app-modal [titulo]="'Cambiar contraseña'" [botonModal]="'Cambiar'" [ShowModal]="showModal" (cerrarModalEvent)="cerrarModal($event)">
 
   <section class="my-4 text-slate-500 text-lg leading-relaxed">
@@ -49,10 +49,10 @@ color="green"
         </section>
         <br>
         <div class="flex justify-end space-x-4">
-          <!--<app-btn  typeBtn="submit"
+          <app-btn  typeBtn="submit"
           color="primary"
-          (click)="CambiarContrasena()">Cambiar Contraseña</app-btn>-->
-          <button  type="button" (click)="CambiarContrasena()" class="btnazul w-48 w-full text-white hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-full text-sm px-2.5 py-2.5 text-center" > Cambiar Contraseña </button>
+          (click)="CambiarContrasena()">Cambiar Contraseña</app-btn>
+          <!-- <button  type="button" (click)="CambiarContrasena()" class="btnazul w-48 w-full text-white hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-full text-sm px-2.5 py-2.5 text-center" > Cambiar Contraseña </button> -->
         </div>
       </div>
     </form>

@@ -20,11 +20,11 @@ export class TokenService {
   savePermisos(token: PermisosDto[]) {
 
     const tokenString = JSON.stringify(token);
-    setCookie('tran-arbo-permisos', tokenString,{ expires: 365, path: '/' });
+    setCookie('spa-permisos', tokenString,{ expires: 365, path: '/' });
   }
 
   getPermisos(): PermisosDto[] {
-    const tokenString = getCookie('tran-arbo-permisos');
+    const tokenString = getCookie('spa-permisos');
     if (tokenString) {
       return JSON.parse(tokenString);
     }
@@ -32,55 +32,55 @@ export class TokenService {
   }
 
   saveToken(token: string) {
-    setCookie('tran-arbo-token', token, { expires: 365, path: '/' });
+    setCookie('spa-token', token, { expires: 365, path: '/' });
   }
 
   getToken() {
-    const token = getCookie('tran-arbo-token');
+    const token = getCookie('spa-token');
     return token;
   }
 
   removeToken() {
-    removeCookie('tran-arbo-token');
+    removeCookie('spa-token');
   }
 
   saveRefreshToken(token?: string) {
-    setCookie('refresh-tran-arbo-token', token, { expires: 365, path: '/' });
+    setCookie('refresh-spa-token', token, { expires: 365, path: '/' });
   }
 
   getRefreshToken() {
-    const token = getCookie('refresh-tran-arbo-token');
+    const token = getCookie('refresh-spa-token');
     return token;
   }
 
   removeRefreshToken() {
-    removeCookie('refresh-tran-arbo-token');
+    removeCookie('refresh-spa-token');
   }
 
   saveTokenId(token: number) {
-    setCookie('tran-arbo-tokenId', token, { expires: 365, path: '/' });
+    setCookie('spa-tokenId', token, { expires: 365, path: '/' });
   }
 
   getTokenId() {
-    const token = getCookie('tran-arbo-tokenId');
+    const token = getCookie('spa-tokenId');
     return token;
   }
 
   removeTokenId() {
-    removeCookie('tran-arbo-tokenId');
+    removeCookie('spa-tokenId');
   }
 
   saveTokenUserName(token: string) {
-    setCookie('tran-arbo-token-UserName', token, { expires: 365, path: '/' });
+    setCookie('spa-token-UserName', token, { expires: 365, path: '/' });
   }
 
   getTokenUserName() {
-    const token = getCookie('tran-arbo-token-UserName');
+    const token = getCookie('spa-token-UserName');
     return token;
   }
 
   removeTokenUserName() {
-    removeCookie('tran-arbo-token-UserName');
+    removeCookie('spa-token-UserName');
   }
 
   isValidToken() {

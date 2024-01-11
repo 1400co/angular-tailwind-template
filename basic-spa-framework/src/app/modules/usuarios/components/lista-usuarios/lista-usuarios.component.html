@@ -1,7 +1,8 @@
 <div class="flex justify-between mb-4">
   <h1 class="text-lg font-semibold">Credenciales</h1>
-  <button *ngIf="mostrarCreate"  type="button" class="btnazul w-48 w-full text-white focus:ring-4 focus:outline-none font-medium rounded-full  px-2.5 py-2.5 text-center" routerLink="/app/usuarios/create" >Agregar + </button>
- <!--<app-btn *ngIf="mostrarCreate"  typeBtn="submit" color="primary"  [customIcon]="'faPlus'" routerLink="/app/usuarios/create">Agregar</app-btn>-->
+
+  <!-- <button *ngIf="mostrarCreate"  type="button" class="btnazul w-48 w-full text-white focus:ring-4 focus:outline-none font-medium rounded-full  px-2.5 py-2.5 text-center" routerLink="/app/usuarios/create" >Agregar + </button> -->
+ <app-btn typeBtn="submit" color="primary"  [customIcon]="'faPlus'" routerLink="/app/usuarios/create">Agregar</app-btn>
 </div>
 <form [formGroup]="form" class="mb-8">
   <div class="grid grid-cols-1 sm:grid-cols-4 gap-2">
