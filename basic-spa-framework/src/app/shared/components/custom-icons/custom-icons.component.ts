@@ -76,6 +76,9 @@ ngOnInit(): void {
       case "faArrowDown":
                   this.iconValue = fasolid.faArrowDown;
                   break;
+      case "faArrowLeft":
+                    this.iconValue = fasolid.faArrowLeft;
+                    break;
       case "faUsersGear":
                   this.iconValue = fasolid.faUsersGear;
                   break;
@@ -96,7 +99,7 @@ ngOnInit(): void {
                      break;
       default:
         this.iconValue = fasolid.fa0;
-          break; 
+          break;
       }
 
   }

@@ -28,18 +28,9 @@
         <div class="relative">
           <div>
             <div class="btn-back">
-              <button onclick="window.history.back()">
-                <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="30.000000pt" height="10.000000pt"
-                  viewBox="0 0 1280.000000 640.000000" preserveAspectRatio="xMidYMid meet">
-                  <g transform="translate(0.000000,640.000000) scale(0.100000,-0.100000)" fill="#FFFFFF" stroke="none">
-                    <path d="M3600 6163 c-51 -36 -3566 -2867 -3577 -2882 -24 -30 -27 -63 -8 -95
-             9 -17 92 -92 183 -167 92 -74 889 -727 1772 -1450 883 -723 1616 -1322 1630
-             -1332 37 -26 92 -22 121 9 l24 26 3 694 2 694 4481 0 c4886 0 4536 -4 4559 55
-             13 35 14 2934 0 2969 -5 14 -23 32 -39 41 -27 13 -486 15 -4515 15 l-4486 0
-             -2 694 -3 694 -24 26 c-29 31 -84 35 -121 9z" />
-                  </g>
-                </svg>
-              </button>
+              <app-btn onclick="window.history.back()" [customIcon]="'faArrowLeft'">
+
+              </app-btn>
             </div>
             <button (click)="toggleUserMenu()" type="button"
               class="btn btn-back2 flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
