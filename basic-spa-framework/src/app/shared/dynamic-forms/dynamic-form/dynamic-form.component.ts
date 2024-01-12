@@ -4,6 +4,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { FieldDefinition } from '../field-definition';
+import { RequestStatus } from 'src/app/core/models/request-status.model';
 
 @Component({
   selector: 'fw-dynamic-form',
@@ -35,13 +36,22 @@ export class DynamicFormComponent implements OnChanges, OnInit {
     }
   }
 
+  @Input()
+  set status(data:RequestStatus)
+  {
+    if(data)
+    {
+      this.statusDetail = data;
+    }
+  };
+
   @Input() operation: string;
   @Input() errorMessage: string;
   @Output() update: EventEmitter<any> = new EventEmitter();
   @Output() create: EventEmitter<any> = new EventEmitter();
 
   form: FormGroup;
-  status: string;
+  statusDetail: RequestStatus = 'init';
   submitted = false;
   vmCopy: any;
 
@@ -60,7 +70,7 @@ export class DynamicFormComponent implements OnChanges, OnInit {
   }
 
   clearForm() {
-    
+
     if(!this.viewModelDefinition)
       return;
 
@@ -74,8 +84,8 @@ export class DynamicFormComponent implements OnChanges, OnInit {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-     if (changes['errorMessage'].currentValue && this.status === 'waiting') {
-       this.status = "";
+     if (changes['errorMessage'].currentValue && this.statusDetail === 'loading') {
+       this.statusDetail = "init";
      }
      if (changes['viewModel'] && changes['viewModelDefinition']) {
       this.clearForm();
@@ -103,7 +113,7 @@ export class DynamicFormComponent implements OnChanges, OnInit {
   onCreate() {
     this.submitted = true;
     if (this.form.valid) {
-      this.status = 'waiting';
+      this.statusDetail = 'loading';
       this.create.emit(this.form.value);
     }
   }
@@ -115,8 +125,13 @@ export class DynamicFormComponent implements OnChanges, OnInit {
   onSave() {
     this.submitted = true;
     if (this.form.valid) {
-      this.status = 'waiting';
+      this.statusDetail = 'loading';
       this.update.emit(this.form.value);
     }
+  }
+
+  isLoading()
+  {
+    return this.statusDetail === 'loading';
   }
 }

@@ -13,22 +13,22 @@
       {{ errorMessage }}
     </div>
 
-    <div *ngIf="status != 'waiting'" class="mt-4">
+    <div *ngIf="statusDetail != 'loading'" class="mt-4">
       <div *ngIf="operation === 'details'" class="flex space-x-2">
-        <button type="button" class="bg-gray-200 text-gray-800 rounded px-4 py-2" (click)="onBack()">Back</button>
-        <button type="button" class="bg-blue-500 text-white rounded px-4 py-2" (click)="onEdit()">Edit</button>
+        <app-btn typeBtn="button" color="red" [loading]="isLoading()" (click)="onBack()">Back</app-btn>
+        <app-btn typeBtn="button" color="primary" [loading]="isLoading()" (click)="onEdit()">Edit</app-btn>
       </div>
       <div *ngIf="operation === 'edit'" class="flex space-x-2">
-        <button type="button" class="bg-gray-200 text-gray-800 rounded px-4 py-2" (click)="onCancel()">Cancel</button>
-        <button type="button" class="bg-blue-500 text-white rounded px-4 py-2" (click)="onSave()">Save</button>
+        <app-btn typeBtn="button" color="red" [loading]="isLoading()" (click)="onCancel()">Cancel</app-btn>
+        <app-btn typeBtn="button" color="primary" [loading]="isLoading()" (click)="onSave()">Save</app-btn>
       </div>
       <div *ngIf="operation === 'create'" class="flex space-x-2">
-        <button type="button" class="bg-gray-200 text-gray-800 rounded px-4 py-2" (click)="onBack()">Back</button>
-        <button type="button" class="bg-blue-500 text-white rounded px-4 py-2" (click)="onCreate()">Create</button>
+        <app-btn typeBtn="button" color="red" [loading]="isLoading()" (click)="onBack()">Back</app-btn>
+        <app-btn typeBtn="button" [loading]="isLoading()" color="primary" (click)="onCreate()">Create</app-btn>
       </div>
     </div>
 
-    <div *ngIf="status === 'waiting'" class="mt-4">
+    <div *ngIf="statusDetail === 'loading'" class="mt-4">
       Waiting...
     </div>
 
